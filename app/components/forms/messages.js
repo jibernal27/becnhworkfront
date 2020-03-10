@@ -63,7 +63,7 @@ export default defineMessages({
     id: `${scope}.place.dateEnd`,
   },
   create: {
-    id: `${scope}.create`,
+    id: `labels.create`,
   },
   file: {
     id: `${scope}.file`,

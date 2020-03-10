@@ -6,8 +6,8 @@ export default function GenericTable({ headers, children }) {
     <Table striped bordered hover>
       <thead>
         <tr>
-          {headers.map(v => (
-            <th>{v}</th>
+          {headers.map((v, i) => (
+            <th key={i}>{v}</th>
           ))}
         </tr>
       </thead>

@@ -21,7 +21,6 @@ const PlaceForm = ({ handleSubmit, submitting, submitFunction, error }) => {
 const validate = values => ({
   name: required(values.name),
   date_init: required(values.date_init),
-  date_end: required(values.date_end),
   picture: fileRequired(values.picture),
 });
 
