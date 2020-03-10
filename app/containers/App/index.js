@@ -8,7 +8,7 @@
  */
 
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
@@ -18,6 +18,10 @@ import SingUp from 'containers/SignUp/Loadable';
 import NavBar from 'components/NavBar/Loadable';
 import LogOut from 'containers/LogOut/Loadable';
 import LogIn from 'containers/LogIn/Loadable';
+import Places from 'containers/Places/Loadable';
+import NewPlace from 'containers/NewPlace/Loadable';
+import Files from 'containers/Files/Loadable';
+import NewFile from 'containers/NewFile/Loadable';
 
 import injectReducer from 'utils/injectReducer';
 import api from 'server';
@@ -26,9 +30,12 @@ import { changeUser } from 'redux/user/actions';
 import GlobalStyle from '../../global-styles';
 import reducer from './reducer';
 import { changeDataInit } from './actions';
+
+const unAuthPaths = ['/login', '/signup'];
+
 class App extends Component {
   async componentDidMount() {
-    const { loadInitData, setUser } = this.props;
+    const { loadInitData, setUser, location, history } = this.props;
     const currentToken = localStorage.getItem('auth');
     if (currentToken) {
       api.setToken(currentToken);
@@ -40,6 +47,10 @@ class App extends Component {
     loadInitData(data);
     if (!userError) {
       setUser(userData);
+    } else {
+      if (unAuthPaths.indexOf(location.pathname) == -1) {
+        history.push('/login');
+      }
     }
   }
 
@@ -52,6 +63,10 @@ class App extends Component {
           <Route exact path="/signup" component={SingUp} />
           <Route exact path="/logout" component={LogOut} />
           <Route exact path="/login" component={LogIn} />
+          <Route exact path="/places" component={Places} />
+          <Route exact path="/places/new" component={NewPlace} />
+          <Route exact path="/files" component={Files} />
+          <Route exact path="/files/new" component={NewFile} />
           <Route component={NotFoundPage} />
         </Switch>
         <GlobalStyle />
@@ -76,4 +91,5 @@ const withConnect = connect(
 export default compose(
   withReducer,
   withConnect,
+  withRouter,
 )(App);

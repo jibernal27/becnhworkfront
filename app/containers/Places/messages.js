@@ -5,13 +5,13 @@
  */
 import { defineMessages } from 'react-intl';
 
-export const scope = 'app.containers.SignUp';
+export const scope = 'app.containers.Places';
 
 export default defineMessages({
   header: {
     id: `${scope}.header`,
   },
-  existing: {
-    id: 'app.containers.SignUp.logIn',
+  newPlace: {
+    id: `${scope}.newPlace`,
   },
 });

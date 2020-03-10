@@ -30,6 +30,16 @@ const GlobalStyle = createGlobalStyle`
   .profile-picture{
     max-height : 200px
   }
+  .table-image {
+    max-width: 150px;
+
+  }
+
+  .table-image {
+    td, th {
+      vertical-align: middle;
+    }
+  }
 `;
 
 export default GlobalStyle;

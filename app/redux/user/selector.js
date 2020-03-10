@@ -12,5 +12,19 @@ const makeSelectorUser = () =>
     selectUser,
     user => user.user,
   );
-
-export { makeSelectorIsAuth, makeSelectorUser };
+const makePlacesSelectorUser = () =>
+  createSelector(
+    selectUser,
+    user => user.places,
+  );
+const makeFilesSelectorUser = () =>
+  createSelector(
+    selectUser,
+    user => user.files,
+  );
+export {
+  makeSelectorIsAuth,
+  makeSelectorUser,
+  makePlacesSelectorUser,
+  makeFilesSelectorUser,
+};

@@ -6,8 +6,8 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { changeUser } from 'redux/user/actions';
 import { FormattedMessage } from 'react-intl';
+import { Link } from 'react-router-dom';
 import messages from './messages';
-
 const Signup = ({ setUser, history }) => {
   const submit = async values => {
     const { data, error } = await api.user.singUp(values);
@@ -29,6 +29,9 @@ const Signup = ({ setUser, history }) => {
         <FormattedMessage {...messages.header} />
       </h1>
       <SignUpForm createUser={submit} />
+      <Link to="/login">
+        <FormattedMessage {...messages.existing} />
+      </Link>
     </section>
   );
 };

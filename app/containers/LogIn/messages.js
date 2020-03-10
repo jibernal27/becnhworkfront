@@ -11,4 +11,7 @@ export default defineMessages({
   header: {
     id: `${scope}.header`,
   },
+  existing: {
+    id: 'app.containers.LogIn.signUp',
+  },
 });

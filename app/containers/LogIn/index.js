@@ -6,6 +6,7 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { changeUser } from 'redux/user/actions';
 import { FormattedMessage } from 'react-intl';
+import { Link } from 'react-router-dom';
 import messages from './messages';
 
 const LogIn = ({ setUser, history }) => {
@@ -29,6 +30,9 @@ const LogIn = ({ setUser, history }) => {
         <FormattedMessage {...messages.header} />
       </h1>
       <LogInForm createUser={submit} />
+      <Link to="/signup">
+        <FormattedMessage {...messages.existing} />
+      </Link>
     </section>
   );
 };

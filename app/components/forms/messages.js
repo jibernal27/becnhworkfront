@@ -50,4 +50,22 @@ export default defineMessages({
   editProfile: {
     id: `${scope}.editProfile`,
   },
+  name: {
+    id: `${scope}.name`,
+  },
+  picture: {
+    id: `${scope}.place.picture`,
+  },
+  dateInit: {
+    id: `${scope}.place.dateInti`,
+  },
+  dateEnd: {
+    id: `${scope}.place.dateEnd`,
+  },
+  create: {
+    id: `${scope}.create`,
+  },
+  file: {
+    id: `${scope}.file`,
+  },
 });

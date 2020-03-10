@@ -4,8 +4,15 @@
  *
  */
 import produce from 'immer';
-
-import { USER_LOGIN, RESET_STATE } from './constants';
+import { remove } from 'lodash';
+import {
+  USER_LOGIN,
+  RESET_STATE,
+  SET_FILES,
+  SET_PLACES,
+  DELETE_PLACE,
+  DELETE_FILE,
+} from './constants';
 
 export const initialState = {
   user: null,
@@ -24,6 +31,18 @@ const userProviderReducer = (state = initialState, action) =>
         break;
       case RESET_STATE:
         return initialState;
+      case SET_FILES:
+        draft.files = action.files;
+        break;
+      case SET_PLACES:
+        draft.places = action.places;
+        break;
+      case DELETE_PLACE:
+        remove(draft.places, p => p.id === action.placeId);
+        break;
+      case DELETE_FILE:
+        remove(draft.files, p => p.id === action.fileId);
+        break;
     }
   });
 

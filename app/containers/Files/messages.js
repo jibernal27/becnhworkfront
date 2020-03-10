@@ -5,13 +5,13 @@
  */
 import { defineMessages } from 'react-intl';
 
-export const scope = 'app.containers.SignUp';
+export const scope = 'app.containers.Files';
 
 export default defineMessages({
   header: {
     id: `${scope}.header`,
   },
-  existing: {
-    id: 'app.containers.SignUp.logIn',
+  newFile: {
+    id: `${scope}.newFile`,
   },
 });

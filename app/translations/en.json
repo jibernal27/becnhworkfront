@@ -28,8 +28,9 @@
   "header.signUp": "Sign Up",
   "header.logout": "Logout",
   "app.containers.HomePage.header": "Edit your basic profile information",
-  "app.containers.LogIn.signUp": "Create a new account",
-  "app.containers.SignUp.logIn": "Use and existing account",
+  "app.containers.LogIn.signUp": "Create a new account instead",
+  "app.containers.SignUp.logIn": "Use and existing account instead",
   "app.containers.LogIn.header": "Log in to your account",
-  "app.containers.SignUp.header": "Register "
+  "app.containers.SignUp.header": "Register ",
+  "app.containers.Places.header": "Your places"
 }
