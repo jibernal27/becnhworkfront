@@ -1,5 +1,5 @@
 import React from 'react';
-import SignUpForm from 'components/forms/SignUpForm';
+import LogInForm from 'components/forms/LogInForm';
 import api from 'server';
 import { SubmissionError } from 'redux-form';
 import { compose } from 'redux';
@@ -8,9 +8,9 @@ import { changeUser } from 'redux/user/actions';
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 
-const Signup = ({ setUser, history }) => {
+const LogIn = ({ setUser, history }) => {
   const submit = async values => {
-    const { data, error } = await api.user.singUp(values);
+    const { data, error } = await api.user.logIn(values);
     if (error) {
       throw new SubmissionError(error);
     }
@@ -28,7 +28,7 @@ const Signup = ({ setUser, history }) => {
       <h1>
         <FormattedMessage {...messages.header} />
       </h1>
-      <SignUpForm createUser={submit} />
+      <LogInForm createUser={submit} />
     </section>
   );
 };
@@ -44,4 +44,4 @@ const withConnect = connect(
   mapDispatchToProps,
 );
 
-export default compose(withConnect)(Signup);
+export default compose(withConnect)(LogIn);
